@@ -5,13 +5,16 @@ console.log("***** Cart Functions *****");
 let basket = [];
 
 function addItem(item) {
-  basket.push(item);
-  return true;
+    if (isFull()){
+        return false;
+    }
+    basket.push(item);
+    return true;
 }
 console.log(addItem('apple'));
 console.log(basket);
 
-function listItems(basket) {
+function listItems() {
   if (basket.length > 0) {
     for (i = 0; i < basket.length; i++)
     console.log(basket[i]);
@@ -21,14 +24,30 @@ function listItems(basket) {
 }
 listItems();
 
-function empty(basket){
-    if(basket.length > 0){
-        for(i=0; i < basket.length; i++)
-            console.log("Your basket has been empited");
-        
-    }else{
-        console.log("Your basket is empty");
+function empty(){
+    while(basket.length > 0){
+        basket.pop();
     }
+}
+
+console.log("this is what I have in my basket:", basket);
+empty();
+console.log("I emptied my basket:", basket);
+
+const maxItems = 5;
+
+function isFull(){
+    if(basket.length === 5){
+        return true;
+    } else{
+        if(basket.length < 5)
+        return false;
+    }
+}
+console.log("Basket is full:", isFull());
+
+function removeItem(item){
+    ()
 }
 
 // DO NOT MODIFY
