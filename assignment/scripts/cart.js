@@ -47,7 +47,16 @@ function isFull(){
 console.log("Basket is full:", isFull());
 
 function removeItem(item){
-    ()
+    const index = basket.indexOf(item);
+
+    if(index !== -1) {
+        const removedItem = basket.splice(index, 1)[0];
+        console.log(`Removed ${removedItem} from the basket`);
+        return removedItem;
+    } else{
+        console.log( `Item ${item} not found in the basket`);
+        return null;
+    }
 }
 
 // DO NOT MODIFY
